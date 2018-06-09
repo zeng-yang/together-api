@@ -1,0 +1,9 @@
+spring:
+
+  datasource:
+    name: together
+    url: jdbc:mysql://localhost:3306/together_test?useSSL=false&rewriteBatchedStatements=true
+    username: root
+    password: uAiqwVwjJ8-i
+    driver-class-name: com.mysql.jdbc.Driver
+    jmx-enabled: false

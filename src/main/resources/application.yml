@@ -1,0 +1,63 @@
+spring:
+  profiles:
+    active: dev
+
+  datasource:
+    name: together
+    url: jdbc:mysql://localhost:3306/together_test?useSSL=false&rewriteBatchedStatements=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    jmx-enabled: false
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate.jdbc.batch_size: 5000
+      hibernate.order_inserts: true
+      hibernate.order_updates: true
+      hibernate.jdbc.batch_versioned_data: true
+      # namespace: husky-session
+
+  servlet:
+    multipart:
+      max-request-size: 10mb
+      max-file-size: 5mb
+
+
+logging:
+  file: var/${spring.profiles.active}.log
+  level:
+    org.springframework.web: ERROR
+    com.zhlzzz.together: DEBUG
+
+server:
+  port: 8080
+
+wechat:
+  miniapp:
+    appid: wxadcbd3ddaf6ee13f
+    secret: 1e5bb707e5469c6827afa295d84be3e9
+    token: 111
+    aesKey: 111
+    msgDataFormat: JSON
+
+qiniu:
+  accessKey: Hx3hejEdZulPyRHggbtuJlcQG5UYk0xEV1rsdEDY
+  secretKey: c2GY1xD70Twm1wu70ekDXvNWhKwEWIVKSWhEqJke
+  bucket: together
+  path: http://p9mhxf2ng.bkt.clouddn.com
+
+multipart:
+  enabled: true
+  location: /home/earthchen/study/spring/SpringBootProjects/search-house/tmp
+  file-size-threshold: 5MB
+  max-request-size: 20MB
+
+pubg:
+  baseUrl: https://api.playbattlegrounds.com
+  apiKey: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJhOGY0YzIxMC0zY2I4LTAxMzYtNzNlNy00OTE3YjdkYzg4YWEiLCJpc3MiOiJnYW1lbG9ja2VyIiwiaWF0IjoxNTI2NjQxMjU0LCJwdWIiOiJibHVlaG9sZSIsInRpdGxlIjoicHViZyIsImFwcCI6InRvZ2V0aGVyIiwic2NvcGUiOiJjb21tdW5pdHkiLCJsaW1pdCI6MTB9.DwMhkX25OEupRS0FBzt6hyetAG7jULlDYGOakTVc2Cg
